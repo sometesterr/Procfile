@@ -86,7 +86,8 @@ message.channel.send(`Now playing : **( ${videoInfo.title} )** :musical_note: `)
         }
     }
     else if (mess.startsWith(prefix + 'skip')) {
-        if (!message.member.voiceChannel) return message.channel.send('You must be in my audio room :microphone2:').then(() => {
+        if (!message.member.voiceChannel) return message.channel.send('You must be in my audio room :microphone2:');
+            message.channel.send('تم تجاوز المقطع').then(() => {
             skip_song(message);
             var server = server = servers[message.guild.id];
             if (message.guild.voiceConnection) message.guild.voiceConnection.disconnect();
@@ -107,8 +108,7 @@ message.channel.send(`Now playing : **( ${videoInfo.title} )** :musical_note: `)
         });
     }
     else if (mess.startsWith(prefix + 'resume')) {
-        if (!message.member.voiceChannel) return message.channel.send('You must be in my audio room :microphone2:');
-            message.channel.send('**Done , :white_check_mark: **').then(() => {
+        if (!message.member.voiceChannel) return message.channel.send('You must be in my audio room :microphone2:').then(() => {
             dispatcher.resume();
         });
     }
