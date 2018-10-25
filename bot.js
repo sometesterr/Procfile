@@ -108,7 +108,8 @@ message.channel.send(`Now playing : **( ${videoInfo.title} )** :musical_note: `)
         });
     }
     else if (mess.startsWith(prefix + 'resume')) {
-        if (!message.member.voiceChannel) return message.channel.send('You must be in my audio room :microphone2:').then(() => {
+        if (!message.member.voiceChannel) return message.channel.send('You must be in my audio room :microphone2:');
+            message.channel.send('**Done , :white_check_mark: **').then(() => {
             dispatcher.resume();
         });
     }
@@ -275,7 +276,7 @@ client.on('message', function(message) {
     } else if(message.content.startsWith(prefix + "setavatar")) {
 				        if(message.author.id !== myID) return;
         client.user.setAvatar(args);
-        message.channel.send(':white_check_mark: Done!').then(msg => {
+        message.then(msg => {
                 if(!args) return message.reply('اكتب الحالة اللي تريدها.');
            msg.delete(5000);
           message.delete(5000);
