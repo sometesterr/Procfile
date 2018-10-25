@@ -276,7 +276,7 @@ client.on('message', function(message) {
     } else if(message.content.startsWith(prefix + "setavatar")) {
 				        if(message.author.id !== myID) return;
         client.user.setAvatar(args);
-        message.then(msg => {
+     then(msg => {
                 if(!args) return message.reply('اكتب الحالة اللي تريدها.');
            msg.delete(5000);
           message.delete(5000);
